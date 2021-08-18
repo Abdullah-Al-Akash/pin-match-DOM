@@ -15,6 +15,7 @@ function getPin() {
 function generatePin() {
         const pin = getPin();
         document.getElementById('display-pin').value = pin;
+        document.getElementById('submit-btn').removeAttribute('disabled', true);
 }
 
 //Calculator Body Typed Number:
@@ -32,3 +33,22 @@ document.getElementById('calc-body').addEventListener('click', function (e) {
                 typedInput.value = newInput;
         }
 })
+
+function verifyPin() {
+        const generatePin = document.getElementById('display-pin').value;
+        const typedPin = document.getElementById('typed-numbers').value;
+        //Verified Pin
+        const success = document.getElementById('notify-success');
+        const fail = document.getElementById('notify-fail');
+
+        if (generatePin == typedPin) {
+                success.style.display = 'block';
+                alert('✅ Pin Matched... Secret door is opening for you');
+                fail.style.display = 'none';
+        }
+        else {
+                fail.style.display = 'block';
+                alert("❌ Pin Didn't Match, Please try again");
+                success.style.display = 'none';
+        }
+}
