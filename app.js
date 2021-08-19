@@ -34,6 +34,7 @@ document.getElementById('calc-body').addEventListener('click', function (e) {
         }
 })
 
+//Verify Pin:
 function verifyPin() {
         const generatePin = document.getElementById('display-pin').value;
         const typedPin = document.getElementById('typed-numbers').value;
@@ -45,10 +46,12 @@ function verifyPin() {
                 success.style.display = 'block';
                 alert('✅ Pin Matched... Secret door is opening for you');
                 fail.style.display = 'none';
+                location.reload();
         }
         else {
                 fail.style.display = 'block';
                 alert("❌ Pin Didn't Match, Please try again");
                 success.style.display = 'none';
+                location.reload();
         }
 }
